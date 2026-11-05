@@ -1,0 +1,147 @@
+/* =========================================
+FORM & PLANNER STYLES (forms.css)
+========================================= */
+
+/* 1. GENERAL FORM LAYOUT */
+form {
+  background-color: #f4f7f6;
+  padding: 30px;
+  border-radius: 8px;
+  border-top: 5px solid #09314f;
+  margin-top: 20px;
+}
+
+label {
+  display: block; /* Puts the label on its own line above the input */
+  font-weight: 700;
+  color: #09314f;
+  margin-bottom: 5px;
+}
+
+/* 2. INPUT & TEXTAREA STYLING */
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='date'],
+textarea {
+  width: 100%; /* Makes inputs responsive */
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif; /* Matches the rest of your site */
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Make sure the text area is tall enough to type a message */
+textarea {
+  min-height: 120px;
+  resize: vertical; /* Allows the user to drag it taller, but not wider */
+}
+
+/* Changes border color when the user clicks inside to type */
+input:focus,
+textarea:focus {
+  outline: 2px solid #1098ad;
+  border-color: #1098ad;
+  box-shadow: 0 0 5px rgba(16, 152, 173, 0.3);
+}
+
+/* 3. SUBMIT BUTTON STYLING */
+form button[type='submit'] {
+  background-color: #09314f;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+form button[type='submit']:hover {
+  background-color: #1098ad;
+}
+
+/* =========================================
+ACADEMIC PLANNER SPECIFIC STYLES
+========================================= */
+
+/* The list container */
+#task-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+/* Individual task rows */
+#task-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border-left: 5px solid #1098ad;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* The checkbox */
+#task-list input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+/* The delete button */
+#task-list button {
+  background-color: #e74c3c; /* A soft red for deletion */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#task-list button:hover {
+  background-color: #c0392b;
+}
+
+/* Class we will add via JavaScript when a task is done */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* 4. VALIDATION ALERT MESSAGES */
+.alert {
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-weight: 700;
+  display: block;
+}
+
+.alert-hidden {
+  display: none;
+}
+
+.alert-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
