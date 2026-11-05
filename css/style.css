@@ -27,11 +27,11 @@ footer {
   padding: 20px;
 }
 
-/* header {
+header {
   padding-top: 0px;
   padding-bottom: 0;
   margin-bottom: 0px;
-} */
+}
 
 main {
   min-height: 80vh; /* Ensures the main content takes up at least 80% of the viewport height */
@@ -49,6 +49,8 @@ img {
 }
 
 #nav_menu {
+  /* display: flex; */
+
   background-color: #f4f7f6; /* A very light, subtle grey/blue background */
   border-bottom: 5px solid #09314f; /* A bold visual accent on the bottom */
 }
@@ -56,6 +58,8 @@ img {
 #nav_menu ul {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
   /* align-items: center; */
   padding: 20px 0;
   gap: 25px;
@@ -108,12 +112,20 @@ img {
   margin: 0 auto; /* Centers the welcome message */
 }
 
+#welcome_msg p {
+  font-style: italic;
+}
+
 .biography {
   background-color: #f4f7f6; /* A very light, subtle grey/blue background */
   padding: 25px;
   border-radius: 8px; /* Softens the corners of the background box */
   border-left: 5px solid #09314f; /* A bold visual accent on the left side */
 }
+
+/* .biography h2 {
+  font-style: italic;
+} */
 
 h1 {
   font-size: 2.5rem;
@@ -124,7 +136,7 @@ h1 {
 nav ul li a.active {
   color: #ffffff;
   background-color: #09314f;
-  margin-bottom: 1; /* Bright blue background */
+  margin-bottom: 1px; /* Bright blue background */
   font-weight: bold;
   border-radius: 4px;
   padding: 5px 10px;
@@ -155,7 +167,7 @@ nav ul li a.active {
 h1,
 h2 {
   color: #09314f;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -196,5 +208,75 @@ tr:nth-child(even) {
   padding: 8px 15px;
   border-radius: 20px; /* Makes them look like rounded pill tags */
   font-size: 0.9rem;
+  font-weight: 400;
+}
+
+/* 7. PROJECTS PAGE (CSS Grid) */
+.grid {
+  display: grid;
+  /* This is the magic of Grid! It auto-fits columns that are at least 250px wide */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #f4f7f6;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden; /* Keeps the image corners rounded inside the card */
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Makes the card float up slightly on hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card img,
+.card video {
+  width: 100%;
+  height: 180px;
+  object-fit: cover; /* Prevents images from stretching weirdly */
+}
+
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Pushes the button to the bottom of the card */
+}
+
+.card-body h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+.card-body .tags {
+  font-size: 0.85rem;
+  color: #1098ad;
   font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Button Styling */
+.btn {
+  display: inline-block;
+  background-color: #09314f;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 700;
+  margin-top: auto; /* Pushes button to the very bottom */
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #1098ad;
 }
