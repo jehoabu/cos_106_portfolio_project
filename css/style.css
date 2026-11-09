@@ -194,6 +194,25 @@ p.lead {
   line-height: 1.6;
 }
 
+/* Blinking Typing Cursor */
+.typing-cursor {
+  display: inline-block;
+  font-weight: 700;
+  color: #1098ad;
+  animation: blink 0.75s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 .biography {
   background-color: #ffffff;
   padding: 32px;
