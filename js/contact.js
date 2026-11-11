@@ -15,7 +15,7 @@ contactForm.addEventListener('submit', function (event) {
   event.preventDefault();
 
   // Reset the message display
-  message.Display.className = 'alert alert-hidden'; // Hide the message box
+  messageDisplay.className = 'alert alert-hidden'; // Hide the message box
   messageDisplay.textContent = '';
 
   // Grab the values typed into the inputs and remove any extra spaces (trim)

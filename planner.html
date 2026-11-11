@@ -6,6 +6,7 @@
     <title>Academic Planner | Jehoiada Enyinyigocho Abu</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/forms.css" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -46,30 +47,25 @@
             <input type="date" id="deadline" name="deadline" required />
 
             <button type="submit">Add Task</button>
+
+            <!-- Dynamic Task Statistics Counter Bar -->
+            <div id="planner-stats" class="planner-stats">
+              <div class="stat-box">
+                <span class="stat-label">Total Tasks</span>
+                <span id="total-count" class="stat-value">0</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">Completed</span>
+                <span id="completed-count" class="stat-value">0</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">Remaining</span>
+                <span id="remaining-count" class="stat-value">0</span>
+              </div>
+            </div>
           </form>
-          <ul id="task-list">
-            <li>
-              Submit COS 106 Assignment<input type="checkbox" /><button
-                type="button"
-              >
-                Delete
-              </button>
-            </li>
-            <li>
-              Review COS 102 Note <input type="checkbox" /><button
-                type="button"
-              >
-                Delete
-              </button>
-            </li>
-            <li>
-              Watch MTH 102 Week 2 Lecture<input type="checkbox" /><button
-                type="button"
-              >
-                Delete
-              </button>
-            </li>
-          </ul>
+
+          <ul id="task-list"></ul>
         </div>
       </section>
     </main>
