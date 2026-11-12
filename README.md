@@ -22,29 +22,30 @@ Welcome to the official repository for my multi-page web portfolio and interacti
 This capstone project is a responsive, accessible, multi-page portfolio site engineered to highlight software engineering projects, educational qualifications, and interactive client-side web applications. 
 
 Beyond serving as a professional digital presence, the codebase demonstrates strict adherence to industry standards, including:
-* **Semantic HTML5 Markup:** Meaningful structural tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`) with zero redundant container bloat.
+* **Semantic HTML5 Markup:** Meaningful structural tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`) with custom browser tab favicon branding (`images/logo.png`) across all pages.
 * **Modern CSS System Architecture:** Sticky glassmorphism navigation, CSS Grid layout patterns, Flexbox alignment, ambient drop shadows, and micro-interactions.
-* **Vanilla JavaScript ES6+ Interactivity:** Event delegation, DOM manipulation, custom character-by-character typewriter effect, and client-side form validation.
+* **Vanilla JavaScript ES6+ Interactivity:** Event delegation, DOM manipulation, real-time task statistics calculation, single-pass typewriter animation, and client-side form validation.
 * **Security & Accessibility Best Practices:** Cross-Site Scripting (XSS) mitigation using text node assignment (`.textContent`), explicit WCAG focus rings, and screen-reader ARIA live regions (`role="alert"`).
 
 ---
 
 ## 🌟 Key Technical Features
 
-1. **Dynamic Typewriter Welcome Effect (`js/typing.js`):**
-   * Automatically types out the hero welcome statement character by character.
+1. **Single-Pass Typewriter Welcome Effect (`js/typing.js`):**
+   * Automatically types out the hero welcome statement character by character once without deleting or looping.
    * Features a custom CSS keyframe blinking cursor (`|`) that smoothly fades out upon completion.
-   * Includes defensive DOM checks to prevent script errors on secondary pages.
+   * Includes defensive DOM guard clauses to prevent console errors on secondary pages.
 
-2. **Sticky Glassmorphism Header (`css/style.css`):**
-   * Header navigation remains pinned to the top of the viewport during scrolling.
-   * Utilizes `backdrop-filter: blur(12px)` for a semi-transparent glass aesthetic.
+2. **Sticky Glassmorphism Header & Favicon Branding (`css/style.css`):**
+   * Header navigation remains pinned to the top of the viewport during scrolling using `backdrop-filter: blur(12px)`.
    * Dynamic active page indicators (`aria-current="page"`) and pill-shaped hover states.
+   * Custom logo icon (`images/logo.png`) linked across all five pages for browser title bar branding.
 
-3. **Interactive Academic Planner App (`planner.html` & `js/planner.js`):**
+3. **Interactive Academic Planner & Live Task Statistics (`planner.html` & `js/planner.js`):**
    * Enables users to add coursework tasks with due dates dynamically.
-   * Utilizes **Event Delegation** on the list container to manage dynamic task completion toggles and task deletion efficiently.
-   * Implements **XSS Protection** by avoiding `innerHTML` when handling user text input.
+   * **Real-Time Statistics Bar:** Automatically computes and displays **Total Tasks**, **Completed**, and **Remaining** counts upon page load, task creation, completion toggling, and deletion.
+   * **Isolated Strike-Through Styling:** Wraps task text and deadlines in a `<span>` element so completed tasks show a line-through decoration without crossing out the "Delete" button text.
+   * Utilizes **Event Delegation** and **XSS Protection** (`.textContent`).
 
 4. **Robust Contact Form Validation (`contact.html` & `js/contact.js`):**
    * Real-time client-side input trimming and empty-field checks.
@@ -61,19 +62,19 @@ Beyond serving as a professional digital presence, the codebase demonstrates str
 
 | Page | File | Key Highlights |
 | :--- | :--- | :--- |
-| **Home** | `index.html` | Hero profile photo with circular masking, smooth single-pass JS typing effect, biography container. |
-| **About Me** | `about.html` | Academic qualifications table using `<thead>`/`<tbody>`, styled alternating rows, Flexbox skill tag pills. |
+| **Home** | `index.html` | Hero profile photo with circular masking, single-pass JS typing effect, biography container, favicon. |
+| **About Me** | `about.html` | Academic qualifications table using `<thead>`/`<tbody>`, alternating rows, Flexbox skill tag pills. |
 | **Projects** | `projects.html` | Interactive card gallery built with CSS Grid, hover-lift animations, embedded HTML5 `<video>` controls. |
-| **Academic Planner** | `planner.html` | Interactive task creation, completion check-off, and deletion powered by JavaScript DOM manipulation. |
+| **Academic Planner** | `planner.html` | Interactive task creation, live Total/Completed/Remaining counter cards, completion toggles, and deletion. |
 | **Contact** | `contact.html` | Responsive form inputs with explicit focus outlines, RegEx client-side validation, accessible feedback alerts. |
 
 ---
 
 ## 🛠️ Technology Stack
 
-* **Markup:** HTML5 (Semantic elements, ARIA attributes, table structures)
+* **Markup:** HTML5 (Semantic elements, ARIA attributes, table structures, favicon metadata)
 * **Styling:** CSS3 (Flexbox, CSS Grid, custom keyframe animations, glassmorphism backdrop blur)
-* **Scripting:** Vanilla JavaScript ES6+ (DOM manipulation, event delegation, RegEx, string sanitization)
+* **Scripting:** Vanilla JavaScript ES6+ (DOM manipulation, real-time counters, event delegation, RegEx, string sanitization)
 * **Design System & Fonts:** Montserrat (via Google Fonts)
 * **Deployment & Version Control:** Git, GitHub, GitHub Pages
 * **Documentation:** LaTeX (`report.tex` for formal project report & defence preparation)
@@ -84,21 +85,22 @@ Beyond serving as a professional digital presence, the codebase demonstrates str
 
 ```
 cos_106_portfolio_project/
-├── index.html           # Homepage with Hero & Typing Banner
+├── index.html           # Homepage with Hero & Single-Pass Typing Banner
 ├── about.html           # Education Table & Skill Badges
 ├── projects.html        # Projects Gallery (CSS Grid & Video)
-├── planner.html         # Academic Task Manager Interface
+├── planner.html         # Academic Task Manager & Live Counter Interface
 ├── contact.html         # Contact Portal & Form Container
 ├── README.md            # Comprehensive Project Documentation
 ├── report.tex           # Formal LaTeX Project Report & Defence Document
 ├── css/
 │   ├── style.css        # Core layout, sticky glass navbar, design system & typography
-│   └── forms.css        # Form styling, accessible alerts & task list components
+│   └── forms.css        # Form styling, stats counter boxes, alerts & task list components
 ├── js/
-│   ├── typing.js        # Single-pass typewriter hero animation & cursor logic
-│   ├── planner.js       # Academic Planner DOM manipulation & XSS protection
+│   ├── typing.js        # Single-pass typewriter hero animation & cursor fade-out logic
+│   ├── planner.js       # Academic Planner DOM manipulation, stats counters & XSS protection
 │   └── contact.js       # Form validation logic & ARIA alert feedback
 └── images/
+    ├── logo.png         # Browser tab favicon icon
     ├── jehoiada.jpg     # Profile portrait image
     ├── ss-tracker.jpg   # Project card thumbnail 1
     ├── campus_event.jpg # Project card thumbnail 2
